@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:10
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=zayzou
+      - POSTGRES_PASSWORD=2113853211
+      - POSTGRES_DB=zayzou
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=soffizahir2016@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=zayzou@2113
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
